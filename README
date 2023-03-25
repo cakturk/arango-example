@@ -1,0 +1,23 @@
+How to use
+----------
+
+Usage of arango-example:
+  -dbhost string
+        db host name (default "http://localhost:8529")
+  -dbname string
+        name of the db to be created (default "example_db")
+  -dbpass string
+        database password
+  -dbuser string
+        database user (default "root")
+
+
+Spawn an arangodb container in a terminal window with the following
+command.
+
+$ docker run --rm -e ARANGO_ROOT_PASSWORD=pass -p 8529:8529 --name arangodb-instance arangodb
+
+And use the example app as shown below to create a very simple movie
+graph.
+
+$ ./arangodb-example -dbuser root -dbpass dbname -dbpass pass
