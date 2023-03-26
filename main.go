@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"crypto/tls"
 	"flag"
 	"fmt"
 	"log"
@@ -45,6 +46,7 @@ func main() {
 	// Create an HTTP connection to the database
 	conn, err := http.NewConnection(http.ConnectionConfig{
 		Endpoints: []string{*host},
+		TLSConfig: &tls.Config{InsecureSkipVerify: true},
 	})
 	if err != nil {
 		log.Fatalf("failed to create HTTP connection: %v", err)
